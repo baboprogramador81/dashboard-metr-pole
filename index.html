@@ -3,821 +3,756 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard · Auto Escola Metrópole · Meta Ads · Mar 2026</title>
+<title>Dashboard Parcial · Metrópole Autoescola · Abr 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0d0d10;
-    --surface: #16161c;
-    --surface2: #1e1e27;
+    --bg: #0b0b0e;
+    --surface: #14141a;
+    --surface2: #1c1c24;
     --border: rgba(255,255,255,0.07);
     --accent: #c97d4a;
     --accent2: #e8a87c;
     --text: #f0ede8;
-    --text-muted: rgba(240,237,232,0.45);
-    --text-sub: rgba(240,237,232,0.65);
+    --text-muted: rgba(240,237,232,0.42);
+    --text-sub: rgba(240,237,232,0.62);
     --green: #5fcfa0;
     --red: #e07070;
     --blue: #7ab4e8;
     --purple: #a89ad8;
     --yellow: #e8c87c;
     --ig: #e1306c;
-    --ig-light: rgba(225,48,108,0.15);
+    --navy: #1B3A6B;
+    --gold: #C8952A;
     --radius: 14px;
     --radius-sm: 8px;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 80% 10%, rgba(204,42,42,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,125,74,0.05) 0%, transparent 60%);
-    pointer-events: none; z-index: 0;
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background:
+    radial-gradient(ellipse 70% 45% at 85% 5%,rgba(200,149,42,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse 45% 55% at 5% 85%,rgba(27,58,107,0.07) 0%,transparent 55%);
+    pointer-events:none;z-index:0}
+  .container{max-width:1220px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
-  /* HEADER */
-  header { padding: 40px 0 32px; border-bottom: 1px solid var(--border); }
-  .header-inner { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  .header-left { display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
-  .logo-wrap { background:#fff; border-radius:10px; padding:10px 14px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.1); flex-shrink:0; align-self:center; }
-  .logo-wrap img { height:52px; width:auto; display:block; }
-  .brand-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(204,42,42,0.12); border:1px solid rgba(204,42,42,0.3); border-radius:100px; padding:4px 12px 4px 8px; font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:#e87878; margin-bottom:12px; }
-  .brand-tag span.dot { width:6px; height:6px; background:#e87878; border-radius:50%; animation:pulse 2s ease infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(0.7)} }
-  .header-title { font-family:'DM Serif Display',serif; font-size:clamp(26px,4vw,40px); line-height:1.1; letter-spacing:-0.02em; }
-  .header-title em { font-style:italic; color:var(--accent2); }
-  .header-meta { font-size:13px; color:var(--text-muted); margin-top:8px; font-weight:300; }
-  .header-badges { display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end; }
-  .header-badge { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px 16px; text-align:right; }
-  .header-badge .label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; }
-  .header-badge .value { font-size:18px; font-weight:600; color:var(--text); margin-top:2px; }
-  .badge-done { border-color:rgba(122,180,232,0.35); }
-  .badge-done .value { color:var(--blue); }
-  .badge-period .value { color:var(--yellow); font-size:14px; }
+  /* ── HEADER ── */
+  header{padding:36px 0 28px;border-bottom:1px solid var(--border)}
+  .header-inner{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .header-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .logo-wrap{background:#fff;border-radius:10px;padding:9px 13px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.1);flex-shrink:0}
+  .logo-wrap img{height:50px;width:auto;display:block}
+  .brand-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(95,207,160,0.1);border:1px solid rgba(95,207,160,0.3);border-radius:100px;padding:4px 12px 4px 8px;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+  .brand-tag .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 1.8s ease infinite}
+  @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.65)}}
+  .header-title{font-family:'DM Serif Display',serif;font-size:clamp(24px,3.5vw,38px);line-height:1.1;letter-spacing:-.02em}
+  .header-title em{font-style:italic;color:var(--accent2)}
+  .header-meta{font-size:13px;color:var(--text-muted);margin-top:7px;font-weight:300}
+  .header-badges{display:flex;gap:11px;flex-wrap:wrap;align-items:flex-end}
+  .hbadge{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 15px;text-align:right;min-width:100px}
+  .hbadge .hl{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+  .hbadge .hv{font-size:17px;font-weight:600;color:var(--text);margin-top:2px}
+  .hbadge.active-b{border-color:rgba(95,207,160,.35)}.hbadge.active-b .hv{color:var(--green)}
+  .hbadge.period-b{border-color:rgba(232,200,124,.3)}.hbadge.period-b .hv{color:var(--yellow);font-size:13px}
+  .hbadge.inv-b{border-color:rgba(201,125,74,.3)}.hbadge.inv-b .hv{color:var(--accent2)}
 
-  /* FILTER BAR */
-  .filter-bar-wrap { background:var(--surface); border-bottom:1px solid var(--border); }
-  .filter-bar { padding:16px 0; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-  .filter-label { font-size:12px; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-right:2px; }
-  .btn-quick { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-sub); font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; padding:6px 13px; cursor:pointer; transition:all .2s; }
-  .btn-quick:hover,.btn-quick.active { border-color:var(--accent); color:var(--accent); background:rgba(201,125,74,0.08); }
-  .divider-v { width:1px; height:26px; background:var(--border); }
-  .date-input { background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text); font-family:'DM Sans',sans-serif; font-size:13px; padding:6px 12px; cursor:pointer; outline:none; transition:border-color .2s; }
-  .date-input:focus { border-color:var(--accent); }
-  .date-sep { color:var(--text-muted); font-size:13px; }
-  .btn-filter { background:var(--accent); border:none; border-radius:var(--radius-sm); color:#fff; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; padding:6px 18px; cursor:pointer; transition:background .2s; }
-  .btn-filter:hover { background:var(--accent2); }
-  .btn-reset { background:transparent; border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-muted); font-family:'DM Sans',sans-serif; font-size:13px; padding:6px 14px; cursor:pointer; transition:all .2s; }
-  .btn-reset:hover { border-color:var(--accent); color:var(--accent); }
-  .filter-info { margin-left:auto; font-size:12px; color:var(--text-muted); font-style:italic; }
+  /* ── FILTER BAR ── */
+  .fbar-wrap{background:var(--surface);border-bottom:1px solid var(--border)}
+  .fbar{padding:14px 0;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .fl{font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+  .bq{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-sub);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 13px;cursor:pointer;transition:all .2s}
+  .bq:hover,.bq.on{border-color:var(--accent);color:var(--accent);background:rgba(201,125,74,.08)}
+  .dvd{width:1px;height:24px;background:var(--border)}
+  .di{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 11px;cursor:pointer;outline:none;transition:border-color .2s}
+  .di:focus{border-color:var(--accent)}
+  .dsep{color:var(--text-muted);font-size:13px}
+  .bf{background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:6px 17px;cursor:pointer;transition:background .2s}
+  .bf:hover{background:var(--accent2)}
+  .br{background:transparent;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-muted);font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 13px;cursor:pointer;transition:all .2s}
+  .br:hover{border-color:var(--accent);color:var(--accent)}
+  .fi{margin-left:auto;font-size:11px;color:var(--text-muted);font-style:italic}
 
-  /* KPI GRID */
-  .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:13px; padding:22px 0 6px; }
-  .kpi-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; position:relative; overflow:hidden; transition:border-color .2s,transform .2s; }
-  .kpi-card:hover { border-color:rgba(201,125,74,0.3); transform:translateY(-2px); }
-  .kpi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:0; transition:opacity .3s; }
-  .kpi-card:hover::before { opacity:1; }
-  .kpi-icon { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:15px; margin-bottom:12px; }
-  .kpi-label { font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:0.09em; color:var(--text-muted); margin-bottom:5px; }
-  .kpi-value { font-size:24px; font-weight:600; line-height:1; color:var(--text); letter-spacing:-0.02em; }
-  .kpi-sub { font-size:11px; color:var(--text-muted); margin-top:5px; }
-  .kpi-trend { display:inline-flex; align-items:center; gap:3px; font-size:10px; font-weight:500; margin-top:5px; padding:2px 6px; border-radius:4px; }
-  .trend-up { background:rgba(95,207,160,0.12); color:var(--green); }
-  .trend-down { background:rgba(224,112,112,0.12); color:var(--red); }
-  .trend-warn { background:rgba(232,200,124,0.12); color:var(--yellow); }
-  .trend-info { background:rgba(122,180,232,0.12); color:var(--blue); }
+  /* ── KPI GRID ── */
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;padding:20px 0 4px}
+  .kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:17px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;cursor:default}
+  .kpi-card:hover{border-color:rgba(201,125,74,.3);transform:translateY(-2px)}
+  .kpi-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
+  .kpi-card:hover::after{opacity:1}
+  .ki{width:29px;height:29px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:11px}
+  .kl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);margin-bottom:4px}
+  .kv{font-size:23px;font-weight:600;line-height:1;color:var(--text);letter-spacing:-.02em}
+  .ks{font-size:10px;color:var(--text-muted);margin-top:4px}
+  .kt{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;margin-top:4px;padding:2px 6px;border-radius:4px}
+  .tu{background:rgba(95,207,160,.12);color:var(--green)}
+  .tw{background:rgba(232,200,124,.12);color:var(--yellow)}
+  .td{background:rgba(224,112,112,.12);color:var(--red)}
+  .ti{background:rgba(122,180,232,.12);color:var(--blue)}
+  .tp{background:rgba(168,154,216,.12);color:var(--purple)}
 
-  /* SECTION */
-  .section { padding:26px 0 8px; }
-  .section-header { display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
-  .section-title { font-family:'DM Serif Display',serif; font-size:20px; letter-spacing:-0.01em; }
-  .section-sub { font-size:12px; color:var(--text-muted); }
+  /* ── SECTION ── */
+  .section{padding:24px 0 6px}
+  .sh{display:flex;align-items:baseline;gap:11px;margin-bottom:15px}
+  .st{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-.01em}
+  .ss{font-size:12px;color:var(--text-muted)}
+  .ig-st{background:linear-gradient(90deg,#e1306c,#833ab4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .cr-st{background:linear-gradient(90deg,#e8c87c,#c97d4a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-  /* IG SECTION TITLE */
-  .section-title-ig { background: linear-gradient(90deg, #e1306c, #833ab4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  /* ── CARD ── */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+  .ct{font-size:12px;font-weight:500;color:var(--text-sub);margin-bottom:14px;display:flex;align-items:center;gap:7px}
+  .ct::before{content:'';width:3px;height:12px;background:var(--accent);border-radius:2px;flex-shrink:0}
+  .ct.ig::before{background:var(--ig)}
+  .ct.cr::before{background:var(--gold)}
+  .cw{position:relative;height:220px}
+  .cw-t{position:relative;height:250px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .three{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+  @media(max-width:900px){.two,.three{grid-template-columns:1fr}}
 
-  /* CHART CARDS */
-  .chart-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; }
-  .chart-title { font-size:13px; font-weight:500; color:var(--text-sub); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
-  .chart-title::before { content:''; width:3px; height:13px; background:var(--accent); border-radius:2px; flex-shrink:0; }
-  .chart-title.ig-title::before { background:var(--ig); }
-  .chart-wrap { position:relative; height:230px; }
-  .chart-wrap-tall { position:relative; height:260px; }
-  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .three-col { display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px; }
-  @media(max-width:900px){.two-col,.three-col{grid-template-columns:1fr}}
+  /* ── IG STRIP ── */
+  .ig-card{background:var(--surface);border:1px solid rgba(225,48,108,.18);border-radius:var(--radius);padding:20px}
+  .ig-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:18px}
+  .ig-kpi{background:rgba(225,48,108,.07);border:1px solid rgba(225,48,108,.14);border-radius:10px;padding:14px;text-align:center}
+  .ig-kpi .iv{font-size:28px;font-weight:600;background:linear-gradient(90deg,#e1306c,#833ab4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .ig-kpi .il{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+  .ig-kpi .is{font-size:10px;color:var(--text-muted);margin-top:2px}
 
-  /* IG CARD */
-  .ig-card { background:var(--surface); border:1px solid rgba(225,48,108,0.2); border-radius:var(--radius); padding:22px; }
-  .ig-kpi-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:13px; margin-bottom:20px; }
-  .ig-kpi { background:rgba(225,48,108,0.07); border:1px solid rgba(225,48,108,0.15); border-radius:10px; padding:16px; text-align:center; }
-  .ig-kpi .val { font-size:30px; font-weight:600; background:linear-gradient(90deg,#e1306c,#833ab4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .ig-kpi .lbl { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
-  .ig-kpi .sub { font-size:11px; color:var(--text-muted); margin-top:3px; }
+  /* ── CREATIVE TABLE ── */
+  .cr-table{width:100%;border-collapse:collapse;font-size:12px}
+  .cr-table thead th{text-align:left;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:8px 12px;border-bottom:1px solid var(--border)}
+  .cr-table thead th:not(:first-child){text-align:right}
+  .cr-table tbody td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--text-sub)}
+  .cr-table tbody td:not(:first-child){text-align:right}
+  .cr-table tbody tr:hover td{background:var(--surface2)}
+  .cr-table tbody tr:last-child td{border-bottom:none}
+  .cr-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em}
+  .cr-video{background:rgba(122,180,232,.12);color:var(--blue)}
+  .cr-carousel{background:rgba(201,125,74,.12);color:var(--accent)}
+  .cr-winner{background:rgba(95,207,160,.12);color:var(--green)}
+  .cr-bar-wrap{width:100%;height:5px;background:var(--surface2);border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:8px;flex:1}
+  .cr-bar-fill{height:100%;border-radius:3px;transition:width 1s ease}
+  .cr-name-cell{display:flex;align-items:center;gap:8px}
 
-  /* AGE BARS */
-  .age-bar-list { display:flex; flex-direction:column; gap:12px; }
-  .age-bar-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; }
-  .age-bar-label { font-size:13px; color:var(--text-sub); font-weight:500; }
-  .age-bar-value { font-size:13px; font-weight:600; }
-  .age-bar-track { height:6px; background:var(--surface2); border-radius:4px; overflow:hidden; }
-  .age-bar-fill { height:100%; border-radius:4px; transition:width 1.1s cubic-bezier(0.4,0,0.2,1); }
-  .age-bar-meta { font-size:11px; color:var(--text-muted); margin-top:3px; }
+  /* ── AGE BARS ── */
+  .ab-list{display:flex;flex-direction:column;gap:11px}
+  .ab-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+  .ab-lbl{font-size:13px;color:var(--text-sub);font-weight:500}
+  .ab-val{font-size:13px;font-weight:600}
+  .ab-track{height:6px;background:var(--surface2);border-radius:4px;overflow:hidden}
+  .ab-fill{height:100%;border-radius:4px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+  .ab-meta{font-size:10px;color:var(--text-muted);margin-top:2px}
 
-  /* TABLE */
-  .data-table { width:100%; border-collapse:collapse; font-size:12px; }
-  .data-table thead th { text-align:left; font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); padding:9px 12px; border-bottom:1px solid var(--border); }
-  .data-table thead th:not(:first-child) { text-align:right; }
-  .data-table tbody td { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,0.03); color:var(--text-sub); }
-  .data-table tbody td:not(:first-child) { text-align:right; }
-  .data-table tbody tr:hover td { background:var(--surface2); }
-  .data-table tbody tr:last-child td { border-bottom:none; }
-  .cell-good { color:var(--green)!important; font-weight:500; }
-  .cell-warn { color:var(--yellow)!important; font-weight:500; }
-  .cell-bad  { color:var(--red)!important; font-weight:500; }
+  /* ── DATA TABLE ── */
+  .dt{width:100%;border-collapse:collapse;font-size:12px}
+  .dt thead th{text-align:left;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:8px 11px;border-bottom:1px solid var(--border)}
+  .dt thead th:not(:first-child){text-align:right}
+  .dt tbody td{padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--text-sub)}
+  .dt tbody td:not(:first-child){text-align:right}
+  .dt tbody tr:hover td{background:var(--surface2)}
+  .dt tbody tr:last-child td{border-bottom:none}
+  .cg{color:var(--green)!important;font-weight:500}
+  .cw2{color:var(--yellow)!important;font-weight:500}
+  .cr2{color:var(--red)!important;font-weight:500}
 
-  /* INSIGHTS */
-  .insights-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(275px,1fr)); gap:13px; }
-  .insight-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:17px 19px; display:flex; gap:13px; align-items:flex-start; transition:border-color .2s; }
-  .insight-card:hover { border-color:rgba(201,125,74,0.3); }
-  .insight-icon { font-size:19px; min-width:34px; height:34px; display:flex; align-items:center; justify-content:center; background:var(--surface2); border-radius:8px; }
-  .insight-title { font-size:12px; font-weight:600; color:var(--text); margin-bottom:4px; }
-  .insight-text { font-size:11px; color:var(--text-muted); line-height:1.6; }
-  .insight-badge { display:inline-block; font-size:9px; font-weight:600; padding:2px 6px; border-radius:4px; margin-bottom:5px; text-transform:uppercase; letter-spacing:0.07em; }
-  .badge-ok   { background:rgba(95,207,160,0.12); color:var(--green); }
-  .badge-warn { background:rgba(232,200,124,0.12); color:var(--yellow); }
-  .badge-act  { background:rgba(224,112,112,0.12); color:var(--red); }
-  .badge-info { background:rgba(122,180,232,0.12); color:var(--blue); }
-  .badge-scale{ background:rgba(168,154,216,0.12); color:var(--purple); }
+  /* ── INSIGHTS ── */
+  .ig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+  .ins{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;display:flex;gap:12px;align-items:flex-start;transition:border-color .2s}
+  .ins:hover{border-color:rgba(201,125,74,.3)}
+  .ins-ico{font-size:18px;min-width:33px;height:33px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:8px}
+  .ins-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:3px}
+  .ins-text{font-size:11px;color:var(--text-muted);line-height:1.6}
+  .ibadge{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;border-radius:4px;margin-bottom:4px;text-transform:uppercase;letter-spacing:.07em}
+  .bok{background:rgba(95,207,160,.12);color:var(--green)}
+  .bwn{background:rgba(232,200,124,.12);color:var(--yellow)}
+  .bad{background:rgba(224,112,112,.12);color:var(--red)}
+  .bif{background:rgba(122,180,232,.12);color:var(--blue)}
+  .bsc{background:rgba(168,154,216,.12);color:var(--purple)}
 
-  /* ALERT BOX */
-  .alert-box { border-radius:var(--radius); padding:14px 16px; margin-top:12px; }
-  .alert-box.ok   { background:rgba(95,207,160,0.07); border:1px solid rgba(95,207,160,0.25); }
-  .alert-box.warn { background:rgba(232,200,124,0.07); border:1px solid rgba(232,200,124,0.25); }
-  .alert-box.bad  { background:rgba(224,112,112,0.07); border:1px solid rgba(224,112,112,0.25); }
-  .alert-box p { font-size:12px; color:var(--text-muted); line-height:1.65; }
-  .alert-box strong.g { color:var(--green); }
-  .alert-box strong.w { color:var(--yellow); }
-  .alert-box strong.r { color:var(--red); }
+  /* ── ALERT ── */
+  .alert{border-radius:var(--radius);padding:13px 15px;margin-top:12px;font-size:12px;line-height:1.65}
+  .alert.ok{background:rgba(95,207,160,.07);border:1px solid rgba(95,207,160,.22)}
+  .alert.wn{background:rgba(232,200,124,.07);border:1px solid rgba(232,200,124,.22)}
+  .alert.bd{background:rgba(224,112,112,.07);border:1px solid rgba(224,112,112,.22)}
+  .alert p{color:var(--text-muted)}
+  .gg{color:var(--green)}.ww{color:var(--yellow)}.rr{color:var(--red)}
 
-  /* FADE IN */
-  .fade-in { opacity:0; transform:translateY(14px); animation:fadeIn 0.5s ease forwards; }
-  @keyframes fadeIn { to{opacity:1;transform:translateY(0)} }
-  .fade-in:nth-child(1){animation-delay:.04s}.fade-in:nth-child(2){animation-delay:.08s}.fade-in:nth-child(3){animation-delay:.12s}.fade-in:nth-child(4){animation-delay:.16s}.fade-in:nth-child(5){animation-delay:.20s}.fade-in:nth-child(6){animation-delay:.24s}.fade-in:nth-child(7){animation-delay:.28s}.fade-in:nth-child(8){animation-delay:.32s}.fade-in:nth-child(9){animation-delay:.36s}.fade-in:nth-child(10){animation-delay:.40s}
+  /* ── COMPARISON STRIP ── */
+  .comp-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:0}
+  .comp-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
+  .comp-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);margin-bottom:10px}
+  .comp-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+  .comp-row:last-child{border-bottom:none}
+  .comp-row-label{font-size:11px;color:var(--text-muted)}
+  .comp-vals{display:flex;gap:14px;align-items:center}
+  .comp-mar{font-size:11px;color:var(--text-sub)}
+  .comp-abr{font-size:11px;font-weight:600}
+  .comp-mar.dim{opacity:.5}
+  .comp-diff{font-size:10px;padding:1px 5px;border-radius:3px;font-weight:600}
+  .diff-up{background:rgba(224,112,112,.12);color:var(--red)}
+  .diff-dn{background:rgba(95,207,160,.12);color:var(--green)}
+  .diff-eq{background:rgba(255,255,255,.06);color:var(--text-muted)}
 
-  .no-data { text-align:center; padding:36px; color:var(--text-muted); font-size:13px; font-style:italic; }
+  /* ── FADE ── */
+  .fi2{opacity:0;transform:translateY(12px);animation:fi 0.5s ease forwards}
+  @keyframes fi{to{opacity:1;transform:translateY(0)}}
+  .fi2:nth-child(1){animation-delay:.04s}.fi2:nth-child(2){animation-delay:.08s}.fi2:nth-child(3){animation-delay:.12s}.fi2:nth-child(4){animation-delay:.16s}.fi2:nth-child(5){animation-delay:.20s}.fi2:nth-child(6){animation-delay:.24s}.fi2:nth-child(7){animation-delay:.28s}.fi2:nth-child(8){animation-delay:.32s}.fi2:nth-child(9){animation-delay:.36s}.fi2:nth-child(10){animation-delay:.40s}
 
-  footer { margin-top:48px; padding:22px 0; border-top:1px solid var(--border); }
-  footer p { font-size:12px; color:var(--text-muted); }
-  footer strong { color:var(--accent2); }
-  .footer-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .nd{text-align:center;padding:32px;color:var(--text-muted);font-size:13px;font-style:italic}
+  footer{margin-top:44px;padding:20px 0;border-top:1px solid var(--border)}
+  footer p{font-size:12px;color:var(--text-muted)}
+  footer strong{color:var(--accent2)}
+  .fi-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-  <div class="container">
-    <div class="header-inner">
-      <div class="header-left">
-        <div class="logo-wrap">
-          <img src="data:image/jpeg;base64,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" alt="Auto Escola Metrópole" />
-        </div>
-        <div>
-          <div class="brand-tag"><span class="dot"></span>Campanha Encerrada · Meta Ads</div>
-          <h1 class="header-title">Relatório <em>Metrópole</em></h1>
-          <p class="header-meta">MATRÍCULAS | WHATSAPP | NOVA LEI | FRANCA · 17/mar–30/mar 2026</p>
-        </div>
+<div class="container">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="logo-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Metrópole Autoescola"/>
       </div>
-      <div class="header-badges">
-        <div class="header-badge badge-done">
-          <div class="label">Status</div>
-          <div class="value">✓ Encerrada</div>
-        </div>
-        <div class="header-badge badge-period">
-          <div class="label">Período completo</div>
-          <div class="value">17/mar → 30/mar</div>
-        </div>
-        <div class="header-badge">
-          <div class="label">Investimento total</div>
-          <div class="value">R$ 343,85</div>
-        </div>
+      <div>
+        <div class="brand-tag"><span class="dot"></span>Campanha Ativa · Parcial</div>
+        <h1 class="header-title">Relatório <em>Parcial</em></h1>
+        <p class="header-meta">MATRÍCULAS | WHATSAPP | NOVA LEI | FRANCA | 08-04-26 · Abr 2026</p>
       </div>
     </div>
+    <div class="header-badges">
+      <div class="hbadge active-b"><div class="hl">Status</div><div class="hv">⚡ Ativa</div></div>
+      <div class="hbadge period-b"><div class="hl">Período</div><div class="hv">08/abr → 12/abr</div></div>
+      <div class="hbadge inv-b"><div class="hl">Investido até agora</div><div class="hv">R$ 89,98</div></div>
+      <div class="hbadge"><div class="hl">Dias ativos</div><div class="hv">5 dias</div></div>
+    </div>
   </div>
+</div>
 </header>
 
 <!-- FILTER BAR -->
-<div class="filter-bar-wrap">
-  <div class="container">
-    <div class="filter-bar">
-      <span class="filter-label">🗓 Período</span>
-      <button class="btn-quick" onclick="setQuick(3, event)">3 dias</button>
-      <button class="btn-quick" onclick="setQuick(7, event)">1 semana</button>
-      <button class="btn-quick active" onclick="setQuick(14, event)">Mês completo</button>
-      <div class="divider-v"></div>
-      <input type="date" class="date-input" id="dateFrom" value="2026-03-17">
-      <span class="date-sep">→</span>
-      <input type="date" class="date-input" id="dateTo" value="2026-03-30">
-      <button class="btn-filter" onclick="applyFilter()">Filtrar</button>
-      <button class="btn-reset" onclick="resetFilter()">Resetar</button>
-      <span class="filter-info" id="filterInfo">Exibindo 14 dias · campanha completa</span>
-    </div>
+<div class="fbar-wrap">
+<div class="container">
+  <div class="fbar">
+    <span class="fl">🗓 Período</span>
+    <button class="bq" onclick="setQ(1,this)">Hoje</button>
+    <button class="bq" onclick="setQ(3,this)">3 dias</button>
+    <button class="bq on" onclick="setQ(5,this)">Período completo</button>
+    <div class="dvd"></div>
+    <input type="date" class="di" id="df" value="2026-04-08">
+    <span class="dsep">→</span>
+    <input type="date" class="di" id="dt" value="2026-04-12">
+    <button class="bf" onclick="applyF()">Filtrar</button>
+    <button class="br" onclick="resetF()">Resetar</button>
+    <span class="fi" id="fi">Exibindo 5 dias · campanha em andamento</span>
   </div>
+</div>
 </div>
 
 <!-- KPIs -->
-<div class="container">
-  <div class="kpi-grid" id="kpiGrid"></div>
-</div>
+<div class="container"><div class="kpi-grid" id="kpiGrid"></div></div>
 
-<!-- INSTAGRAM SECTION -->
+<!-- INSTAGRAM -->
 <div class="container">
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title section-title-ig">Instagram — Resultados via Anúncio</h2>
-      <span class="section-sub">Visitas ao perfil e novos seguidores gerados pela campanha</span>
+<div class="section">
+  <div class="sh">
+    <h2 class="st ig-st">Instagram · Resultados via Anúncio</h2>
+    <span class="ss">Visitas ao perfil e novos seguidores no período</span>
+  </div>
+  <div class="ig-card">
+    <div class="ig-row">
+      <div class="ig-kpi"><div class="iv" id="igV">19</div><div class="il">Visitas ao Perfil</div><div class="is">geradas pelos anúncios</div></div>
+      <div class="ig-kpi"><div class="iv" id="igS">1</div><div class="il">Novos Seguidores</div><div class="is">atribuídos à campanha</div></div>
+      <div class="ig-kpi"><div class="iv" id="igC">5,3%</div><div class="il">Taxa Visita → Follow</div><div class="is">1 de 19 converteram</div></div>
+      <div class="ig-kpi"><div class="iv" id="igCpv">R$ 4,74</div><div class="il">Custo por Visita IG</div><div class="is">89,98 ÷ 19 visitas</div></div>
+      <div class="ig-kpi"><div class="iv" id="igTp">159</div><div class="il">ThruPlays</div><div class="is">vídeo assistido até o fim</div></div>
     </div>
-    <div class="ig-card">
-      <div class="ig-kpi-row">
-        <div class="ig-kpi">
-          <div class="val" id="igVisitasTotal">64</div>
-          <div class="lbl">Visitas ao Perfil</div>
-          <div class="sub">via anúncios no período</div>
-        </div>
-        <div class="ig-kpi">
-          <div class="val" id="igSeguidoresTotal">9</div>
-          <div class="lbl">Novos Seguidores</div>
-          <div class="sub">atribuídos à campanha</div>
-        </div>
-        <div class="ig-kpi">
-          <div class="val" id="igConvRate">14,1%</div>
-          <div class="lbl">Taxa Visita → Follow</div>
-          <div class="sub">9 de 64 converteram</div>
-        </div>
-        <div class="ig-kpi">
-          <div class="val" id="igCpv">R$ 5,37</div>
-          <div class="lbl">Custo por Visita IG</div>
-          <div class="sub">343,85 ÷ 64 visitas</div>
-        </div>
-      </div>
-      <div class="two-col">
-        <div>
-          <div class="chart-title ig-title">Visitas ao Perfil por Dia</div>
-          <div class="chart-wrap"><canvas id="chartIgVisitas"></canvas></div>
-        </div>
-        <div>
-          <div class="chart-title ig-title">Novos Seguidores por Dia</div>
-          <div class="chart-wrap"><canvas id="chartIgSeguidores"></canvas></div>
-        </div>
-      </div>
-      <div class="alert-box warn" style="margin-top:16px;">
-        <p><strong class="w">Análise Instagram:</strong> A campanha não tinha objetivo de crescimento de seguidores — era focada em WhatsApp. Os 64 visitas e 9 seguidores são resultado orgânico do tráfego dos anúncios. <strong class="w">Oportunidade:</strong> Com um objetivo secundário de IG ou um criativo que direcione para o perfil, esse número pode crescer 5–10x sem custo adicional.</p>
-      </div>
+    <div class="two">
+      <div><div class="ct ig">Visitas ao Perfil por Dia</div><div class="cw"><canvas id="cIgV"></canvas></div></div>
+      <div><div class="ct ig">ThruPlays por Dia (Vídeo)</div><div class="cw"><canvas id="cTp"></canvas></div></div>
+    </div>
+    <div class="alert wn" style="margin-top:14px">
+      <p><strong class="ww">Oportunidade IG:</strong> Em apenas 5 dias a campanha gerou 19 visitas ao perfil — quase 30% do que a campanha inteira de março gerou (64 visitas). O vídeo está sendo um driver de visitas ao perfil. Otimizar a bio e os destaques para converter essas visitas em leads diretos.</p>
     </div>
   </div>
+</div>
+</div>
+
+<!-- CRIATIVO PERFORMANCE -->
+<div class="container">
+<div class="section">
+  <div class="sh">
+    <h2 class="st cr-st">Performance por Criativo</h2>
+    <span class="ss">6 anúncios ativos · ranking de conversão</span>
+  </div>
+  <div class="card">
+    <div class="ct cr">Ranking de Anúncios por Resultado</div>
+    <table class="cr-table" id="crTable"></table>
+  </div>
+  <div class="alert ok" style="margin-top:0">
+    <p><strong class="gg">Carrossel Antigo lidera</strong> com 8 resultados e CPR R$ 4,58 — o melhor da conta. O Vídeo está em 2º com 6 resultados e boa tração de ThruPlays (113). <strong class="gg">Desativar "5 ERROS" e "MULHERES APRENDEM RÁPIDO"</strong> que não geraram resultado — realocar o budget para os dois vencedores.</p>
+  </div>
+</div>
 </div>
 
 <!-- EVOLUÇÃO DIÁRIA -->
 <div class="container">
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title">Evolução Diária</h2>
-      <span class="section-sub">Conversas iniciadas no WhatsApp e gasto diário</span>
-    </div>
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;">
-      <div class="chart-card">
-        <div class="chart-title">Conversas Iniciadas por Dia</div>
-        <div class="chart-wrap-tall"><canvas id="chartResultados"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Gasto Diário (R$)</div>
-        <div class="chart-wrap-tall"><canvas id="chartGasto"></canvas></div>
-      </div>
-    </div>
-    <div style="margin-top:16px;">
-      <div class="chart-card">
-        <div class="chart-title">CPR · Custo por Resultado (R$)</div>
-        <div class="chart-wrap"><canvas id="chartCPR"></canvas></div>
-      </div>
-    </div>
+<div class="section">
+  <div class="sh"><h2 class="st">Evolução Diária</h2><span class="ss">Conversas WhatsApp e gasto por dia</span></div>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px">
+    <div class="card"><div class="ct">Conversas Iniciadas por Dia</div><div class="cw-t"><canvas id="cR"></canvas></div></div>
+    <div class="card"><div class="ct">Gasto Diário (R$)</div><div class="cw-t"><canvas id="cG"></canvas></div></div>
   </div>
-
-  <!-- ENTREGA -->
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title">Métricas de Entrega</h2>
-      <span class="section-sub">CTR, CPM e engajamentos no período</span>
-    </div>
-    <div class="two-col">
-      <div class="chart-card">
-        <div class="chart-title">CTR — Taxa de Cliques (%)</div>
-        <div class="chart-wrap"><canvas id="chartCTR"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">CPM — Custo por 1.000 Impressões (R$)</div>
-        <div class="chart-wrap"><canvas id="chartCPM"></canvas></div>
-      </div>
-    </div>
-    <div style="margin-top:16px;">
-      <div class="chart-card">
-        <div class="chart-title">Engajamentos com o Post por Dia</div>
-        <div class="chart-wrap"><canvas id="chartEngajamentos"></canvas></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PÚBLICO -->
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title">Público Alcançado</h2>
-      <span class="section-sub">Resultados por faixa etária e gênero · Total da campanha</span>
-    </div>
-    <div class="two-col">
-      <div class="chart-card">
-        <div class="chart-title">Resultados por Faixa Etária</div>
-        <div class="chart-wrap"><canvas id="chartAge"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Faixas Etárias — Detalhado</div>
-        <div class="age-bar-list" id="ageBars" style="padding-top:4px;"></div>
-        <div class="alert-box ok" style="margin-top:14px;">
-          <p><strong class="g">25–34 domina com 31 resultados (40% do total)</strong> — diferente do esperado para CNH de primeira habilitação. Público de renovação, adição de categoria ou campanha de oportunidade (Nova Lei) alcançando adultos com urgência.</p>
-        </div>
-      </div>
-    </div>
-    <div class="two-col" style="margin-top:16px;">
-      <div class="chart-card">
-        <div class="chart-title">Alcance por Gênero</div>
-        <div class="chart-wrap"><canvas id="chartGenderAlcance"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Resultados por Gênero</div>
-        <div class="chart-wrap"><canvas id="chartGenderResultados"></canvas></div>
-      </div>
-    </div>
-    <div class="alert-box ok" style="margin-top:16px;">
-      <p><strong class="g">Mulheres convertem desproporcionalmente:</strong> 55% dos resultados com alcance ligeiramente menor. CPR feminino estimado em R$ 3,92 vs. R$ 5,27 masculino — criativos voltados ao público feminino tendem a ter melhor ROI nessa campanha.</p>
-    </div>
-  </div>
-
-  <!-- TABELA -->
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title">Dados por Dia</h2>
-      <span class="section-sub">Detalhamento diário — todos os dados reais do relatório Meta</span>
-    </div>
-    <div class="chart-card">
-      <div id="tableWrap"></div>
-    </div>
-  </div>
-
-  <!-- INSIGHTS -->
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title">Análise Estratégica</h2>
-      <span class="section-sub">Visão de analista sênior · pontos fortes, alertas e próximos passos</span>
-    </div>
-    <div class="insights-grid" id="insightsGrid"></div>
+  <div style="margin-top:14px">
+    <div class="card"><div class="ct">CPR · Custo por Resultado (R$)</div><div class="cw"><canvas id="cCPR"></canvas></div></div>
   </div>
 </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <p>Gerado em <span id="footerDate"></span> · Auto Escola Metrópole · Relatório Final Mar 2026</p>
-      <p>Gestão de Tráfego <strong>@soufabiocarvalho</strong></p>
+<!-- ENTREGA -->
+<div class="section">
+  <div class="sh"><h2 class="st">Métricas de Entrega</h2><span class="ss">CTR e CPM no período</span></div>
+  <div class="two">
+    <div class="card"><div class="ct">CTR — Taxa de Cliques (%)</div><div class="cw"><canvas id="cCTR"></canvas></div></div>
+    <div class="card"><div class="ct">CPM — Custo por 1.000 Impressões (R$)</div><div class="cw"><canvas id="cCPM"></canvas></div></div>
+  </div>
+</div>
+
+<!-- PÚBLICO -->
+<div class="section">
+  <div class="sh"><h2 class="st">Público Alcançado</h2><span class="ss">Resultados por faixa etária e gênero</span></div>
+  <div class="two">
+    <div class="card">
+      <div class="ct">Resultados por Faixa Etária</div>
+      <div class="cw"><canvas id="cAge"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct">Detalhamento por Faixa</div>
+      <div class="ab-list" id="ageBars" style="padding-top:4px"></div>
+      <div class="alert ok" style="margin-top:12px">
+        <p><strong class="gg">25–34 + 35–44 = 76% dos resultados</strong> com CPR entre R$ 4,65–R$ 5,23. Público de reinserção ou adição de categoria — mesmo padrão da campanha de março. Consistência no público valida a segmentação.</p>
+      </div>
     </div>
   </div>
+  <div class="two" style="margin-top:14px">
+    <div class="card"><div class="ct">Alcance por Gênero</div><div class="cw"><canvas id="cGA"></canvas></div></div>
+    <div class="card"><div class="ct">Resultados por Gênero</div><div class="cw"><canvas id="cGR"></canvas></div></div>
+  </div>
+  <div class="alert ok" style="margin-top:0">
+    <p><strong class="gg">Mulheres = 70,6% dos resultados</strong> com apenas R$ 66,55 gastos — CPR estimado R$ 5,55 feminino vs R$ 4,64 masculino nesse período. O padrão de março confirma: público feminino converte com consistência nessa campanha.</p>
+  </div>
+</div>
+
+<!-- COMPARATIVO -->
+<div class="section">
+  <div class="sh"><h2 class="st">Comparativo com Campanha de Março</h2><span class="ss">Mesma campanha · ciclo anterior vs atual</span></div>
+  <div class="comp-strip">
+    <div class="comp-card">
+      <div class="comp-label">Eficiência de Custo</div>
+      <div class="comp-row"><span class="comp-row-label">CPR médio</span><div class="comp-vals"><span class="comp-mar dim">R$ 4,41 (mar)</span><span class="comp-abr" style="color:var(--yellow)">R$ 5,29 (abr)</span><span class="comp-diff diff-up">+19%</span></div></div>
+      <div class="comp-row"><span class="comp-row-label">Gasto/dia</span><div class="comp-vals"><span class="comp-mar dim">R$ 24,56 (mar)</span><span class="comp-abr" style="color:var(--green)">R$ 17,99 (abr)</span><span class="comp-diff diff-dn">-27%</span></div></div>
+      <div class="comp-row"><span class="comp-row-label">Resultados/dia</span><div class="comp-vals"><span class="comp-mar dim">5,6 (mar)</span><span class="comp-abr" style="color:var(--yellow)">3,4 (abr)</span><span class="comp-diff diff-up">-39%</span></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label">Entrega de Mídia</div>
+      <div class="comp-row"><span class="comp-row-label">CPM médio</span><div class="comp-vals"><span class="comp-mar dim">R$ 9,96 (mar)</span><span class="comp-abr" style="color:var(--green)">R$ 11,14 (abr)</span><span class="comp-diff diff-up">+12%</span></div></div>
+      <div class="comp-row"><span class="comp-row-label">CTR médio</span><div class="comp-vals"><span class="comp-mar dim">0,76% (mar)</span><span class="comp-abr" style="color:var(--green)">1,38% (abr)</span><span class="comp-diff diff-dn">+82%</span></div></div>
+      <div class="comp-row"><span class="comp-row-label">Frequência</span><div class="comp-vals"><span class="comp-mar dim">1,26× (mar)</span><span class="comp-abr">1,29× (abr)</span><span class="comp-diff diff-eq">=</span></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label">Instagram</div>
+      <div class="comp-row"><span class="comp-row-label">Visitas/dia</span><div class="comp-vals"><span class="comp-mar dim">4,6 (mar)</span><span class="comp-abr" style="color:var(--green)">3,8 (abr)</span><span class="comp-diff diff-eq">~</span></div></div>
+      <div class="comp-row"><span class="comp-row-label">ThruPlays</span><div class="comp-vals"><span class="comp-mar dim">n/d (mar)</span><span class="comp-abr" style="color:var(--blue)">159 (abr)</span><span class="comp-diff diff-dn">Novo</span></div></div>
+      <div class="comp-row"><span class="comp-row-label">Criativos ativos</span><div class="comp-vals"><span class="comp-mar dim">1 (mar)</span><span class="comp-abr" style="color:var(--purple)">6 (abr)</span><span class="comp-diff diff-dn">+6×</span></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label">Leitura estratégica</div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.7;padding-top:4px">
+        CTR melhorou <strong style="color:var(--green)">+82%</strong> — o mix de criativos está funcionando. O CPR subiu <strong style="color:var(--yellow)">+19%</strong>, mas a campanha tem só 5 dias: o algoritmo ainda está na fase de aprendizado. Aguardar 7–10 dias antes de qualquer corte de budget.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TABELA -->
+<div class="section">
+  <div class="sh"><h2 class="st">Dados por Dia</h2><span class="ss">Todos os dados reais do relatório Meta</span></div>
+  <div class="card"><div id="tableWrap"></div></div>
+</div>
+
+<!-- INSIGHTS -->
+<div class="section">
+  <div class="sh"><h2 class="st">Análise Estratégica</h2><span class="ss">Visão de analista sênior · campanha em andamento</span></div>
+  <div class="ig-grid" id="insightsGrid"></div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+<div class="container">
+  <div class="fi-row">
+    <p>Gerado em <span id="fd"></span> · Auto Escola Metrópole · Parcial Abr 2026 · Dados reais Meta Ads</p>
+    <p>Gestão de Tráfego <strong>@soufabiocarvalho</strong></p>
+  </div>
+</div>
 </footer>
 
 <script>
 // ══════════════════════════════════════════
-// DADOS REAIS — EXPORTADOS DO META ADS
+// DADOS REAIS — xlsx 08-12 abr 2026
 // ══════════════════════════════════════════
-const RAW_DATA = [
-  { data:'2026-03-17', label:'17/mar', resultados:8,  alcance:2198, impressoes:3061, gasto:27.26, cpr:3.41, cpm:8.91,  ctr:0.75, engaj:105, seguidores:1, visitas:10 },
-  { data:'2026-03-18', label:'18/mar', resultados:8,  alcance:2030, impressoes:2786, gasto:26.08, cpr:3.26, cpm:9.36,  ctr:0.72, engaj:77,  seguidores:0, visitas:3  },
-  { data:'2026-03-19', label:'19/mar', resultados:8,  alcance:1879, impressoes:2477, gasto:23.61, cpr:2.95, cpm:9.53,  ctr:0.73, engaj:52,  seguidores:1, visitas:6  },
-  { data:'2026-03-20', label:'20/mar', resultados:9,  alcance:1973, impressoes:2368, gasto:22.62, cpr:2.51, cpm:9.55,  ctr:1.01, engaj:46,  seguidores:1, visitas:6  },
-  { data:'2026-03-21', label:'21/mar', resultados:8,  alcance:1819, impressoes:2143, gasto:22.55, cpr:2.82, cpm:10.52, ctr:0.79, engaj:99,  seguidores:4, visitas:5  },
-  { data:'2026-03-22', label:'22/mar', resultados:2,  alcance:942,  impressoes:1220, gasto:16.50, cpr:8.25, cpm:13.52, ctr:0.74, engaj:144, seguidores:0, visitas:2  },
-  { data:'2026-03-23', label:'23/mar', resultados:11, alcance:2595, impressoes:3285, gasto:41.49, cpr:3.77, cpm:12.63, ctr:0.88, engaj:389, seguidores:1, visitas:6  },
-  { data:'2026-03-24', label:'24/mar', resultados:4,  alcance:1998, impressoes:2402, gasto:29.35, cpr:7.34, cpm:12.22, ctr:0.67, engaj:207, seguidores:0, visitas:4  },
-  { data:'2026-03-25', label:'25/mar', resultados:5,  alcance:1219, impressoes:1487, gasto:17.16, cpr:3.43, cpm:11.54, ctr:0.74, engaj:122, seguidores:0, visitas:0  },
-  { data:'2026-03-26', label:'26/mar', resultados:3,  alcance:1518, impressoes:1834, gasto:21.89, cpr:7.30, cpm:11.94, ctr:0.60, engaj:138, seguidores:0, visitas:4  },
-  { data:'2026-03-27', label:'27/mar', resultados:3,  alcance:2162, impressoes:2699, gasto:21.99, cpr:7.33, cpm:8.15,  ctr:0.63, engaj:20,  seguidores:0, visitas:10 },
-  { data:'2026-03-28', label:'28/mar', resultados:3,  alcance:2757, impressoes:3414, gasto:23.98, cpr:7.99, cpm:7.02,  ctr:0.70, engaj:52,  seguidores:1, visitas:2  },
-  { data:'2026-03-29', label:'29/mar', resultados:3,  alcance:2578, impressoes:3145, gasto:26.86, cpr:8.95, cpm:8.54,  ctr:0.54, engaj:83,  seguidores:0, visitas:2  },
-  { data:'2026-03-30', label:'30/mar', resultados:3,  alcance:1620, impressoes:2261, gasto:22.51, cpr:7.50, cpm:9.96,  ctr:0.75, engaj:92,  seguidores:0, visitas:4  },
+const RAW = [
+  { data:'2026-04-08', label:'08/abr',  r:2,  a:295,  i:336,  g:3.78,  cpr:1.89,  cpm:11.25, ctr:1.19, ig_v:1,  ig_s:1, tp:4  },
+  { data:'2026-04-09', label:'09/abr',  r:5,  a:1735, i:2452, g:25.67, cpr:5.13,  cpm:10.47, ctr:0.98, ig_v:10, ig_s:0, tp:31 },
+  { data:'2026-04-10', label:'10/abr',  r:5,  a:2236, i:2924, g:28.40, cpr:5.68,  cpm:9.71,  ctr:2.02, ig_v:4,  ig_s:0, tp:31 },
+  { data:'2026-04-11', label:'11/abr',  r:2,  a:1496, i:1742, g:20.15, cpr:10.08, cpm:11.57, ctr:0.92, ig_v:3,  ig_s:0, tp:58 },
+  { data:'2026-04-12', label:'12/abr',  r:3,  a:646,  i:825,  g:11.98, cpr:3.99,  cpm:14.52, ctr:1.82, ig_v:1,  ig_s:0, tp:35 },
 ];
 
 const AGE_DATA = [
-  { label:'25–34', resultados:31, gasto:121.83, alcance:10596 },
-  { label:'35–44', resultados:17, gasto:82.36,  alcance:4847  },
-  { label:'45–54', resultados:14, gasto:51.02,  alcance:2262  },
-  { label:'18–24', resultados:9,  gasto:71.75,  alcance:8798  },
-  { label:'55–64', resultados:4,  gasto:13.49,  alcance:650   },
-  { label:'65+',   resultados:3,  gasto:3.40,   alcance:134   },
+  { label:'25–34', r:7,  g:32.57, a:2580 },
+  { label:'35–44', r:6,  g:31.36, a:1965 },
+  { label:'45–54', r:2,  g:13.76, a:755  },
+  { label:'18–24', r:1,  g:7.48,  a:809  },
+  { label:'55–64', r:1,  g:4.18,  a:260  },
+  { label:'65+',   r:0,  g:0.62,  a:39   },
 ];
 
-const GENDER_DATA = {
-  alcance:    { female:15253, male:11943 },
-  resultados: { female:51,    male:27    },
-  gasto:      { female:199.78, male:142.36 },
-};
+const GEN = { alcance:{f:4396,m:1981}, r:{f:12,m:5}, g:{f:66.55,m:23.22} };
 
-let filteredDays = [...RAW_DATA];
+const CREATIVES = [
+  { name:'CARROSSEL | ANTIGO',           type:'carrossel', r:8,  g:36.64, a:2587, i:3485, tp:45  },
+  { name:'VÍDEO',                        type:'video',     r:6,  g:31.77, a:2249, i:2620, tp:113 },
+  { name:'CARROSSEL | QUANTO CUSTA',     type:'carrossel', r:2,  g:19.81, a:1434, i:1998, tp:1   },
+  { name:'CARROSSEL | NOVA LEI',         type:'carrossel', r:1,  g:0.55,  a:53,   i:68,   tp:0   },
+  { name:'CARROSSEL | 5 ERROS',          type:'carrossel', r:0,  g:1.21,  a:84,   i:107,  tp:0   },
+  { name:'CARROSSEL | MULHERES',         type:'carrossel', r:0,  g:0.00,  a:1,    i:1,    tp:0   },
+].map(c=>({...c, cpr: c.r>0 ? c.g/c.r : 0}));
+
+let filtered = [...RAW];
 let charts = {};
 
-// ══════════════════════════════════════════
-// FILTROS
-// ══════════════════════════════════════════
-function setQuick(days, ev) {
-  document.querySelectorAll('.btn-quick').forEach(b => b.classList.remove('active'));
-  ev.target.classList.add('active');
-  const allDates = RAW_DATA.map(d => d.data).sort();
-  const to   = allDates[allDates.length - 1];
-  const from = allDates[Math.max(0, allDates.length - days)];
-  document.getElementById('dateFrom').value = from;
-  document.getElementById('dateTo').value   = to;
-  applyFilter();
+// ── FILTROS ──
+function setQ(n, btn) {
+  document.querySelectorAll('.bq').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const all = RAW.map(d=>d.data).sort();
+  const to   = all[all.length-1];
+  const from = all[Math.max(0,all.length-n)];
+  document.getElementById('df').value = from;
+  document.getElementById('dt').value = to;
+  applyF();
 }
-
-function applyFilter() {
-  const from = document.getElementById('dateFrom').value;
-  const to   = document.getElementById('dateTo').value;
-  filteredDays = RAW_DATA.filter(d => d.data >= from && d.data <= to);
-  const n = filteredDays.length;
-  document.getElementById('filterInfo').textContent = `Exibindo ${n} dia${n!==1?'s':''} no período selecionado`;
-  updateIgKpis();
+function applyF() {
+  const f=document.getElementById('df').value, t=document.getElementById('dt').value;
+  filtered = RAW.filter(d=>d.data>=f&&d.data<=t);
+  document.getElementById('fi').textContent=`Exibindo ${filtered.length} dia${filtered.length!==1?'s':''} selecionados`;
+  updateIG();
   renderAll();
 }
-
-function resetFilter() {
-  document.getElementById('dateFrom').value = '2026-03-17';
-  document.getElementById('dateTo').value   = '2026-03-30';
-  document.querySelectorAll('.btn-quick').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.btn-quick')[2].classList.add('active');
-  filteredDays = [...RAW_DATA];
-  document.getElementById('filterInfo').textContent = 'Exibindo 14 dias · campanha completa';
-  updateIgKpis();
-  renderAll();
+function resetF() {
+  document.getElementById('df').value='2026-04-08';
+  document.getElementById('dt').value='2026-04-12';
+  document.querySelectorAll('.bq').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.bq')[2].classList.add('on');
+  filtered=[...RAW];
+  document.getElementById('fi').textContent='Exibindo 5 dias · campanha em andamento';
+  updateIG(); renderAll();
 }
 
-// ══════════════════════════════════════════
-// IG KPIs DINÂMICOS
-// ══════════════════════════════════════════
-function updateIgKpis() {
-  const visitas   = filteredDays.reduce((s,d)=>s+d.visitas,0);
-  const seguidores= filteredDays.reduce((s,d)=>s+d.seguidores,0);
-  const gasto     = filteredDays.reduce((s,d)=>s+d.gasto,0);
-  const conv      = visitas > 0 ? ((seguidores/visitas)*100).toFixed(1) : '0';
-  const cpv       = visitas > 0 ? (gasto/visitas).toFixed(2) : '—';
-  document.getElementById('igVisitasTotal').textContent   = visitas;
-  document.getElementById('igSeguidoresTotal').textContent= seguidores;
-  document.getElementById('igConvRate').textContent       = conv+'%';
-  document.getElementById('igCpv').textContent            = 'R$ '+cpv.replace('.',',');
+// ── IG DINÂMICO ──
+function updateIG() {
+  const v=filtered.reduce((s,d)=>s+d.ig_v,0);
+  const s=filtered.reduce((s,d)=>s+d.ig_s,0);
+  const g=filtered.reduce((s,d)=>s+d.g,0);
+  const tp=filtered.reduce((s,d)=>s+d.tp,0);
+  document.getElementById('igV').textContent=v;
+  document.getElementById('igS').textContent=s;
+  document.getElementById('igC').textContent=v>0?((s/v)*100).toFixed(1)+'%':'0%';
+  document.getElementById('igCpv').textContent='R$ '+(v>0?(g/v).toFixed(2).replace('.',','):'—');
+  document.getElementById('igTp').textContent=tp;
 }
 
-// ══════════════════════════════════════════
-// KPIs
-// ══════════════════════════════════════════
-function computeKPIs(days) {
-  if (!days.length) return null;
-  const totalR  = days.reduce((s,d)=>s+d.resultados,0);
-  const totalG  = days.reduce((s,d)=>s+d.gasto,0);
-  const totalI  = days.reduce((s,d)=>s+d.impressoes,0);
-  const totalA  = days.reduce((s,d)=>s+d.alcance,0);
-  const totalE  = days.reduce((s,d)=>s+d.engaj,0);
-  const avgCPR  = totalR > 0 ? totalG/totalR : 0;
-  const avgCTR  = days.reduce((s,d)=>s+(d.ctr*d.impressoes),0)/Math.max(1,totalI);
-  const avgCPM  = days.reduce((s,d)=>s+(d.cpm*d.impressoes),0)/Math.max(1,totalI);
-  const avgFreq = totalI/Math.max(1,totalA);
-  return { totalR, totalG, totalI, totalA, totalE, avgCPR, avgCTR, avgCPM, avgFreq };
+// ── KPIs ──
+function kpis(days) {
+  if(!days.length)return null;
+  const totR=days.reduce((s,d)=>s+d.r,0);
+  const totG=days.reduce((s,d)=>s+d.g,0);
+  const totI=days.reduce((s,d)=>s+d.i,0);
+  const totA=days.reduce((s,d)=>s+d.a,0);
+  const totTp=days.reduce((s,d)=>s+d.tp,0);
+  const avgCPR=totR>0?totG/totR:0;
+  const avgCTR=days.reduce((s,d)=>s+(d.ctr*d.i),0)/Math.max(1,totI);
+  const avgCPM=days.reduce((s,d)=>s+(d.cpm*d.i),0)/Math.max(1,totI);
+  const avgFreq=totI/Math.max(1,totA);
+  return{totR,totG,totI,totA,totTp,avgCPR,avgCTR,avgCPM,avgFreq};
 }
 
 function renderKPIs() {
-  const kpis = computeKPIs(filteredDays);
-  const grid = document.getElementById('kpiGrid');
-  if (!kpis) { grid.innerHTML = '<p class="no-data">Nenhum dado no período.</p>'; return; }
-
-  const cards = [
-    { icon:'💬', bg:'rgba(95,207,160,0.12)',  label:'Conversas WhatsApp', value:kpis.totalR, sub:'total de resultados',     trend:'trend-up',   tText:'✓ Objetivo atingido' },
-    { icon:'💰', bg:'rgba(201,125,74,0.12)',  label:'Investimento',       value:'R$ '+kpis.totalG.toFixed(2).replace('.',','), sub:'total no período', trend:null },
-    { icon:'📊', bg:'rgba(122,180,232,0.12)', label:'CPR Médio',          value:'R$ '+kpis.avgCPR.toFixed(2).replace('.',','), sub:'custo por resultado',
-      trend: kpis.avgCPR<=5?'trend-up':kpis.avgCPR<=8?'trend-warn':'trend-down',
-      tText: kpis.avgCPR<=5?'↓ Excelente':kpis.avgCPR<=8?'~ Moderado':'↑ Alto' },
-    { icon:'👁️', bg:'rgba(168,154,216,0.12)', label:'Impressões',         value:(kpis.totalI/1000).toFixed(1)+'k', sub:'total de exibições', trend:null },
-    { icon:'📡', bg:'rgba(232,200,124,0.12)', label:'Alcance',            value:(kpis.totalA/1000).toFixed(1)+'k', sub:'pessoas únicas', trend:null },
-    { icon:'🔁', bg:'rgba(201,125,74,0.08)',  label:'Frequência',         value:kpis.avgFreq.toFixed(2)+'×',       sub:'impressões/pessoa',
-      trend: kpis.avgFreq<=2?'trend-up':'trend-warn',
-      tText: kpis.avgFreq<=2?'✓ Sem fadiga':'⚠ Atenção' },
-    { icon:'🖱️', bg:'rgba(95,207,160,0.10)',  label:'CTR Médio',          value:kpis.avgCTR.toFixed(2)+'%', sub:'taxa de cliques',
-      trend: kpis.avgCTR>=1?'trend-up':kpis.avgCTR>=0.7?'trend-warn':'trend-down',
-      tText: kpis.avgCTR>=1?'↑ Bom':'↓ Melhorar criativo' },
-    { icon:'📺', bg:'rgba(122,180,232,0.10)', label:'CPM Médio',          value:'R$ '+kpis.avgCPM.toFixed(2).replace('.',','), sub:'por 1.000 impressões',
-      trend: kpis.avgCPM<=12?'trend-up':'trend-warn',
-      tText: kpis.avgCPM<=12?'↓ CPM baixo':'~ CPM moderado' },
-    { icon:'❤️', bg:'rgba(225,48,108,0.10)',  label:'Engajamentos',       value:kpis.totalE, sub:'reações + interações',
-      trend:'trend-info', tText:'📈 Alta interação' },
+  const k=kpis(filtered);
+  const g=document.getElementById('kpiGrid');
+  if(!k){g.innerHTML='<p class="nd">Nenhum dado no período.</p>';return;}
+  const cprC=k.avgCPR<=5?'tu':k.avgCPR<=8?'tw':'td';
+  const cprT=k.avgCPR<=5?'↓ Excelente':k.avgCPR<=8?'~ Moderado':'↑ Alto';
+  const cards=[
+    {i:'💬',bg:'rgba(95,207,160,.12)',  l:'Conversas WhatsApp', v:k.totR,  s:'resultados',            t:'tu', tt:'✓ Ativo'},
+    {i:'💰',bg:'rgba(201,125,74,.12)',  l:'Investido',          v:'R$ '+k.totG.toFixed(2).replace('.',','), s:'total no período', t:null},
+    {i:'📊',bg:'rgba(122,180,232,.12)', l:'CPR Médio',          v:'R$ '+k.avgCPR.toFixed(2).replace('.',','), s:'custo por resultado', t:cprC, tt:cprT},
+    {i:'👁️',bg:'rgba(168,154,216,.12)', l:'Impressões',         v:(k.totI/1000).toFixed(1)+'k', s:'exibições totais', t:null},
+    {i:'📡',bg:'rgba(232,200,124,.12)', l:'Alcance',            v:(k.totA/1000).toFixed(1)+'k', s:'pessoas únicas', t:null},
+    {i:'🔁',bg:'rgba(201,125,74,.08)',  l:'Frequência',         v:k.avgFreq.toFixed(2)+'×',     s:'impressões/pessoa', t:k.avgFreq<=2?'tu':'tw', tt:k.avgFreq<=2?'✓ Sem fadiga':'⚠ Atenção'},
+    {i:'🖱️',bg:'rgba(95,207,160,.10)',  l:'CTR Médio',          v:k.avgCTR.toFixed(2)+'%',      s:'taxa de cliques', t:k.avgCTR>=1?'tu':k.avgCTR>=0.7?'tw':'td', tt:k.avgCTR>=1?'↑ Acima benchmark':'↓ Melhorar'},
+    {i:'📺',bg:'rgba(122,180,232,.10)', l:'CPM Médio',          v:'R$ '+k.avgCPM.toFixed(2).replace('.',','), s:'por 1.000 impress.', t:k.avgCPM<=12?'tu':'tw', tt:k.avgCPM<=12?'↓ Eficiente':'~ Atenção'},
+    {i:'▶️',bg:'rgba(225,48,108,.10)',  l:'ThruPlays',          v:k.totTp, s:'vídeo visto até o fim', t:'ti', tt:'📈 Bom engajamento'},
   ];
-
-  grid.innerHTML = cards.map(c=>`
-    <div class="kpi-card fade-in">
-      <div class="kpi-icon" style="background:${c.bg}">${c.icon}</div>
-      <div class="kpi-label">${c.label}</div>
-      <div class="kpi-value">${c.value}</div>
-      ${c.trend?`<div class="kpi-trend ${c.trend}">${c.tText}</div>`:''}
-      <div class="kpi-sub">${c.sub}</div>
+  g.innerHTML=cards.map(c=>`
+    <div class="kpi-card fi2">
+      <div class="ki" style="background:${c.bg}">${c.i}</div>
+      <div class="kl">${c.l}</div>
+      <div class="kv">${c.v}</div>
+      ${c.t?`<div class="kt ${c.t}">${c.tt}</div>`:''}
+      <div class="ks">${c.s}</div>
     </div>`).join('');
 }
 
-// ══════════════════════════════════════════
-// CHARTS
-// ══════════════════════════════════════════
-const gridCfg = () => ({ color:'rgba(255,255,255,0.05)', drawBorder:false });
-const tickCfg = () => ({ color:'rgba(240,237,232,0.4)', font:{family:'DM Sans',size:11} });
-function destroy(k) { if(charts[k]){charts[k].destroy();delete charts[k];} }
+// ── CHARTS ──
+const gc=()=>({color:'rgba(255,255,255,.05)',drawBorder:false});
+const tc=()=>({color:'rgba(240,237,232,.4)',font:{family:'DM Sans',size:11}});
+function dc(k){if(charts[k]){charts[k].destroy();delete charts[k];}}
 
 function renderCharts() {
-  const days = filteredDays;
-  if (!days.length) return;
-  const labels = days.map(d=>d.label);
-  const maxR = Math.max(...days.map(d=>d.resultados));
+  const d=filtered; if(!d.length)return;
+  const lbs=d.map(x=>x.label);
+  const maxR=Math.max(...d.map(x=>x.r));
 
-  // Resultados
-  destroy('r');
-  charts.r = new Chart(document.getElementById('chartResultados'),{
-    type:'bar', data:{ labels, datasets:[{
-      data: days.map(d=>d.resultados),
-      backgroundColor: days.map(d=>d.resultados===maxR?'#c97d4a':'rgba(201,125,74,0.32)'),
-      borderRadius:5, borderSkipped:false
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>` ${c.raw} conversas`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),stepSize:2},border:{display:false},beginAtZero:true}}
-    }
-  });
+  dc('r');
+  charts.r=new Chart(document.getElementById('cR'),{type:'bar',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.r),
+    backgroundColor:d.map(x=>x.r===maxR?'#c97d4a':'rgba(201,125,74,.3)'),
+    borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw} conversas`}}},
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),stepSize:1},border:{display:false},beginAtZero:true}}}});
 
-  // Gasto
-  destroy('g');
-  charts.g = new Chart(document.getElementById('chartGasto'),{
-    type:'bar', data:{ labels, datasets:[{
-      data: days.map(d=>d.gasto),
-      backgroundColor:'rgba(122,180,232,0.32)', borderColor:'#7ab4e8', borderWidth:1,
-      borderRadius:5, borderSkipped:false
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>` R$ ${c.raw.toFixed(2)}`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),callback:v=>'R$'+v},border:{display:false},beginAtZero:true}}
-    }
-  });
+  dc('g');
+  charts.g=new Chart(document.getElementById('cG'),{type:'bar',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.g),backgroundColor:'rgba(122,180,232,.3)',borderColor:'#7ab4e8',borderWidth:1,
+    borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` R$ ${c.raw.toFixed(2)}`}}},
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),callback:v=>'R$'+v},border:{display:false},beginAtZero:true}}}});
 
-  // CPR
-  destroy('cpr');
-  charts.cpr = new Chart(document.getElementById('chartCPR'),{
-    type:'line', data:{ labels, datasets:[{
-      data: days.map(d=>d.cpr), borderColor:'#c97d4a',
-      backgroundColor:'rgba(201,125,74,0.07)', borderWidth:2, fill:true, tension:0.4,
-      pointBackgroundColor: days.map(d=>d.cpr>7?'#e07070':d.cpr<4?'#5fcfa0':'#c97d4a'), pointRadius:4
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
+  dc('cpr');
+  charts.cpr=new Chart(document.getElementById('cCPR'),{type:'line',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.cpr),borderColor:'#c97d4a',backgroundColor:'rgba(201,125,74,.07)',
+    borderWidth:2,fill:true,tension:0.4,
+    pointBackgroundColor:d.map(x=>x.cpr>8?'#e07070':x.cpr<4?'#5fcfa0':'#c97d4a'),pointRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
       plugins:{tooltip:{callbacks:{label:c=>` R$ ${c.raw.toFixed(2)}`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),callback:v=>'R$'+v},border:{display:false},beginAtZero:true}}
-    }
-  });
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),callback:v=>'R$'+v},border:{display:false},beginAtZero:true}}}});
 
-  // CTR
-  destroy('ctr');
-  charts.ctr = new Chart(document.getElementById('chartCTR'),{
-    type:'line', data:{ labels, datasets:[{
-      data: days.map(d=>d.ctr), borderColor:'#5fcfa0',
-      backgroundColor:'rgba(95,207,160,0.07)', borderWidth:2, fill:true, tension:0.4,
-      pointBackgroundColor: days.map(d=>d.ctr>=1?'#5fcfa0':'#e8c87c'), pointRadius:4
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
+  dc('ctr');
+  charts.ctr=new Chart(document.getElementById('cCTR'),{type:'line',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.ctr),borderColor:'#5fcfa0',backgroundColor:'rgba(95,207,160,.07)',
+    borderWidth:2,fill:true,tension:0.4,
+    pointBackgroundColor:d.map(x=>x.ctr>=1.5?'#5fcfa0':x.ctr<0.8?'#e07070':'#e8c87c'),pointRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
       plugins:{tooltip:{callbacks:{label:c=>` ${c.raw.toFixed(2)}%`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),callback:v=>v+'%'},border:{display:false},beginAtZero:true}}
-    }
-  });
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),callback:v=>v+'%'},border:{display:false},beginAtZero:true}}}});
 
-  // CPM
-  destroy('cpm');
-  charts.cpm = new Chart(document.getElementById('chartCPM'),{
-    type:'line', data:{ labels, datasets:[{
-      data: days.map(d=>d.cpm), borderColor:'#a89ad8',
-      backgroundColor:'rgba(168,154,216,0.07)', borderWidth:2, fill:true, tension:0.4,
-      pointBackgroundColor: days.map(d=>d.cpm>13?'#e07070':'#a89ad8'), pointRadius:4
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
+  dc('cpm');
+  charts.cpm=new Chart(document.getElementById('cCPM'),{type:'line',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.cpm),borderColor:'#a89ad8',backgroundColor:'rgba(168,154,216,.07)',
+    borderWidth:2,fill:true,tension:0.4,
+    pointBackgroundColor:d.map(x=>x.cpm>13?'#e07070':'#a89ad8'),pointRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
       plugins:{tooltip:{callbacks:{label:c=>` R$ ${c.raw.toFixed(2)}`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),callback:v=>'R$'+v},border:{display:false},beginAtZero:true}}
-    }
-  });
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),callback:v=>'R$'+v},border:{display:false},beginAtZero:true}}}});
 
-  // ENGAJAMENTOS
-  destroy('eng');
-  charts.eng = new Chart(document.getElementById('chartEngajamentos'),{
-    type:'bar', data:{ labels, datasets:[{
-      data: days.map(d=>d.engaj),
-      backgroundColor: days.map(d=>d.engaj===Math.max(...days.map(x=>x.engaj))?'rgba(225,48,108,0.8)':'rgba(225,48,108,0.25)'),
-      borderRadius:5, borderSkipped:false
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>` ${c.raw} engajamentos`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:tickCfg(),border:{display:false},beginAtZero:true}}
-    }
-  });
+  // IG Visitas
+  dc('igv');
+  charts.igv=new Chart(document.getElementById('cIgV'),{type:'bar',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.ig_v),
+    backgroundColor:d.map(x=>x.ig_v===Math.max(...d.map(y=>y.ig_v))?'rgba(225,48,108,.85)':'rgba(225,48,108,.28)'),
+    borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw} visitas`}}},
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),stepSize:2},border:{display:false},beginAtZero:true}}}});
 
-  // IG VISITAS
-  destroy('igV');
-  charts.igV = new Chart(document.getElementById('chartIgVisitas'),{
-    type:'bar', data:{ labels: days.map(d=>d.label), datasets:[{
-      data: days.map(d=>d.visitas),
-      backgroundColor: days.map(d=>d.visitas===Math.max(...days.map(x=>x.visitas))?'rgba(225,48,108,0.85)':'rgba(225,48,108,0.3)'),
-      borderRadius:5, borderSkipped:false
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>` ${c.raw} visitas`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),stepSize:2},border:{display:false},beginAtZero:true}}
-    }
-  });
+  // ThruPlays
+  dc('tp');
+  charts.tp=new Chart(document.getElementById('cTp'),{type:'bar',data:{labels:lbs,datasets:[{
+    data:d.map(x=>x.tp),
+    backgroundColor:d.map(x=>x.tp===Math.max(...d.map(y=>y.tp))?'rgba(131,58,180,.8)':'rgba(131,58,180,.3)'),
+    borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw} ThruPlays`}}},
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:tc(),border:{display:false},beginAtZero:true}}}});
 
-  // IG SEGUIDORES
-  destroy('igS');
-  charts.igS = new Chart(document.getElementById('chartIgSeguidores'),{
-    type:'bar', data:{ labels: days.map(d=>d.label), datasets:[{
-      data: days.map(d=>d.seguidores),
-      backgroundColor:'rgba(131,58,180,0.5)',
-      borderRadius:5, borderSkipped:false
-    }]},
-    options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>` ${c.raw} seguidores`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),stepSize:1},border:{display:false},beginAtZero:true}}
-    }
-  });
+  // Age
+  dc('age');
+  charts.age=new Chart(document.getElementById('cAge'),{type:'bar',data:{
+    labels:AGE_DATA.map(a=>a.label),
+    datasets:[{data:AGE_DATA.map(a=>a.r),
+      backgroundColor:AGE_DATA.map(a=>a.r===Math.max(...AGE_DATA.map(x=>x.r))?'#c97d4a':'rgba(201,125,74,.3)'),
+      borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw} resultados`}}},
+      scales:{x:{grid:gc(),ticks:tc(),border:{display:false}},y:{grid:gc(),ticks:{...tc(),stepSize:1},border:{display:false},beginAtZero:true}}}});
 
-  // AGE chart
-  destroy('age');
-  charts.age = new Chart(document.getElementById('chartAge'),{
-    type:'bar',
-    data:{ labels:AGE_DATA.map(a=>a.label),
-      datasets:[{ data:AGE_DATA.map(a=>a.resultados),
-        backgroundColor: AGE_DATA.map(a=>a.resultados===Math.max(...AGE_DATA.map(x=>x.resultados))?'#c97d4a':'rgba(201,125,74,0.32)'),
-        borderRadius:5, borderSkipped:false }]},
-    options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>` ${c.raw} resultados`}}},
-      scales:{x:{grid:gridCfg(),ticks:tickCfg(),border:{display:false}},y:{grid:gridCfg(),ticks:{...tickCfg(),stepSize:5},border:{display:false},beginAtZero:true}}
-    }
-  });
+  const dopt=(lbl)=>({responsive:true,maintainAspectRatio:false,cutout:'63%',
+    plugins:{legend:{position:'bottom',labels:{color:'rgba(240,237,232,.6)',font:{family:'DM Sans',size:12},padding:12,boxWidth:11}},
+      tooltip:{callbacks:{label:c=>` ${c.raw.toLocaleString('pt-BR')} ${lbl}`}}}});
 
-  // GENDER DOUGHNUTS
-  const doughnutOpts = (label) => ({
-    responsive:true, maintainAspectRatio:false, cutout:'62%',
-    plugins:{ legend:{position:'bottom',labels:{color:'rgba(240,237,232,0.6)',font:{family:'DM Sans',size:12},padding:14,boxWidth:12}},
-      tooltip:{callbacks:{label:c=>` ${c.raw.toLocaleString('pt-BR')} ${label}`}} }
-  });
+  dc('ga');
+  charts.ga=new Chart(document.getElementById('cGA'),{type:'doughnut',data:{labels:['Feminino','Masculino'],
+    datasets:[{data:[GEN.alcance.f,GEN.alcance.m],backgroundColor:['#e8a87c','#7ab4e8'],borderColor:'#14141a',borderWidth:3}]},
+    options:dopt('pessoas')});
 
-  destroy('ga');
-  charts.ga = new Chart(document.getElementById('chartGenderAlcance'),{
-    type:'doughnut',
-    data:{ labels:['Feminino','Masculino'],
-      datasets:[{data:[GENDER_DATA.alcance.female,GENDER_DATA.alcance.male],
-        backgroundColor:['#e8a87c','#7ab4e8'],borderColor:'#16161c',borderWidth:3}]},
-    options: doughnutOpts('pessoas')
-  });
-
-  destroy('gr');
-  charts.gr = new Chart(document.getElementById('chartGenderResultados'),{
-    type:'doughnut',
-    data:{ labels:['Feminino','Masculino'],
-      datasets:[{data:[GENDER_DATA.resultados.female,GENDER_DATA.resultados.male],
-        backgroundColor:['#e8a87c','#7ab4e8'],borderColor:'#16161c',borderWidth:3}]},
-    options: doughnutOpts('resultados')
-  });
+  dc('gr');
+  charts.gr=new Chart(document.getElementById('cGR'),{type:'doughnut',data:{labels:['Feminino','Masculino'],
+    datasets:[{data:[GEN.r.f,GEN.r.m],backgroundColor:['#e8a87c','#7ab4e8'],borderColor:'#14141a',borderWidth:3}]},
+    options:dopt('resultados')});
 }
 
-// ══════════════════════════════════════════
-// AGE BARS
-// ══════════════════════════════════════════
+// ── CREATIVE TABLE ──
+function renderCreatives() {
+  const maxR=Math.max(...CREATIVES.map(c=>c.r));
+  const rows=CREATIVES.sort((a,b)=>b.r-a.r).map((c,i)=>{
+    const pct=maxR>0?(c.r/maxR*100).toFixed(0):0;
+    const typeClass=c.type==='video'?'cr-video':'cr-carousel';
+    const typeLabel=c.type==='video'?'Vídeo':'Carrossel';
+    const winner=i===0&&c.r>0?'<span class="cr-badge cr-winner">Líder</span>':'';
+    const cprTxt=c.r>0?`R$ ${c.cpr.toFixed(2)}`:'—';
+    const cprColor=c.r===0?'var(--text-muted)':c.cpr<=5?'var(--green)':c.cpr<=8?'var(--yellow)':'var(--red)';
+    const rColor=c.r===0?'var(--text-muted)':c.r>=6?'var(--green)':'var(--text-sub)';
+    return `<tr>
+      <td style="font-weight:500;color:var(--text)">
+        <span class="cr-badge ${typeClass}">${typeLabel}</span>
+        <span style="margin-left:8px">${c.name}${winner?'&nbsp;'+winner:''}</span>
+      </td>
+      <td style="color:${rColor};font-weight:600">${c.r}</td>
+      <td style="color:${cprColor};font-weight:${c.r>0?'500':'400'}">${cprTxt}</td>
+      <td>R$ ${c.g.toFixed(2)}</td>
+      <td>${(c.i/1000).toFixed(1)}k</td>
+      <td>${c.a.toLocaleString('pt-BR')}</td>
+      <td>${c.tp>0?c.tp:'—'}</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="cr-bar-wrap" style="width:80px">
+            <div class="cr-bar-fill" style="width:${pct}%;background:${c.r===0?'rgba(255,255,255,.08)':'#c97d4a'}"></div>
+          </div>
+          <span style="font-size:10px;color:var(--text-muted)">${pct}%</span>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('crTable').innerHTML=`
+    <thead><tr>
+      <th>Criativo</th><th>Result.</th><th>CPR</th><th>Gasto</th>
+      <th>Impressões</th><th>Alcance</th><th>ThruPlays</th><th>Share</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>`;
+}
+
+// ── AGE BARS ──
 function renderAgeBars() {
-  const sorted = [...AGE_DATA].sort((a,b)=>b.resultados-a.resultados);
-  const maxR   = sorted[0].resultados;
-  const colors = ['#c97d4a','#e8a87c','#5fcfa0','#7ab4e8','#a89ad8','#e8c87c'];
-  document.getElementById('ageBars').innerHTML = sorted.map((a,i)=>{
-    const pct = (a.resultados/maxR*100).toFixed(1);
-    const cpr = a.resultados>0?(a.gasto/a.resultados).toFixed(2):'—';
+  const sorted=[...AGE_DATA].sort((a,b)=>b.r-a.r).filter(a=>a.r>0||a.g>0);
+  const maxR=Math.max(...sorted.map(a=>a.r),1);
+  const colors=['#c97d4a','#e8a87c','#5fcfa0','#7ab4e8','#a89ad8','#e8c87c'];
+  document.getElementById('ageBars').innerHTML=sorted.map((a,i)=>{
+    const pct=(a.r/maxR*100).toFixed(0);
+    const cpr=a.r>0?(a.g/a.r).toFixed(2):'—';
     return `<div class="age-bar-item">
-      <div class="age-bar-header">
-        <span class="age-bar-label">${a.label}</span>
-        <span class="age-bar-value" style="color:${colors[i]}">${a.resultados} resultados</span>
+      <div class="ab-hd">
+        <span class="ab-lbl">${a.label}</span>
+        <span class="ab-val" style="color:${colors[i]}">${a.r} result.</span>
       </div>
-      <div class="age-bar-track"><div class="age-bar-fill" style="width:${pct}%;background:${colors[i]}"></div></div>
-      <div class="age-bar-meta">R$ ${a.gasto.toFixed(2)} gastos · CPR: R$ ${cpr}</div>
+      <div class="ab-track"><div class="ab-fill" style="width:${a.r>0?pct:1}%;background:${colors[i]}"></div></div>
+      <div class="ab-meta">R$ ${a.g.toFixed(2)} gastos · CPR: R$ ${cpr}</div>
     </div>`;
   }).join('');
 }
 
-// ══════════════════════════════════════════
-// TABLE
-// ══════════════════════════════════════════
+// ── TABLE ──
 function renderTable() {
-  const days = filteredDays;
-  const wrap = document.getElementById('tableWrap');
-  if (!days.length) { wrap.innerHTML='<p class="no-data">Nenhum dado no período.</p>'; return; }
-  const maxR   = Math.max(...days.map(d=>d.resultados));
-  const minCPR = Math.min(...days.filter(d=>d.resultados>0).map(d=>d.cpr));
-
-  wrap.innerHTML = `<table class="data-table"><thead><tr>
+  const d=filtered;
+  const wrap=document.getElementById('tableWrap');
+  if(!d.length){wrap.innerHTML='<p class="nd">Nenhum dado.</p>';return;}
+  const maxR=Math.max(...d.map(x=>x.r));
+  const minCPR=Math.min(...d.filter(x=>x.r>0).map(x=>x.cpr));
+  wrap.innerHTML=`<table class="dt"><thead><tr>
     <th>Data</th><th>Result.</th><th>CPR (R$)</th><th>Gasto (R$)</th>
-    <th>Impressões</th><th>Alcance</th><th>CTR (%)</th><th>CPM (R$)</th><th>Engaj.</th><th>Visitas IG</th><th>Seg. IG</th>
+    <th>Impressões</th><th>Alcance</th><th>CTR (%)</th><th>CPM (R$)</th><th>ThruPlays</th><th>Visitas IG</th>
   </tr></thead><tbody>
-    ${days.map(d=>{
-      const rC = d.resultados===maxR?'cell-good':d.resultados<=3?'cell-warn':'';
-      const cC = d.cpr===minCPR?'cell-good':d.cpr>7?'cell-bad':d.cpr>5?'cell-warn':'';
-      const cpmC = d.cpm>13?'cell-bad':d.cpm<10?'cell-good':'';
-      const ctrC = d.ctr>=1?'cell-good':d.ctr<0.65?'cell-bad':'';
-      return `<tr>
-        <td style="font-weight:500;color:var(--text)">${d.label}</td>
-        <td class="${rC}">${d.resultados}</td>
-        <td class="${cC}">${d.cpr.toFixed(2)}</td>
-        <td>${d.gasto.toFixed(2)}</td>
-        <td>${d.impressoes.toLocaleString('pt-BR')}</td>
-        <td>${d.alcance.toLocaleString('pt-BR')}</td>
-        <td class="${ctrC}">${d.ctr.toFixed(2)}</td>
-        <td class="${cpmC}">${d.cpm.toFixed(2)}</td>
-        <td>${d.engaj}</td>
-        <td>${d.visitas}</td>
-        <td>${d.seguidores}</td>
+    ${d.map(x=>{
+      const rC=x.r===maxR?'cg':x.r===0?'cr2':'';
+      const cC=x.cpr===minCPR&&x.r>0?'cg':x.cpr>8?'cr2':x.cpr>5?'cw2':'';
+      const cpmC=x.cpm>13?'cr2':x.cpm<10?'cg':'';
+      const ctrC=x.ctr>=1.5?'cg':x.ctr<0.8?'cw2':'';
+      const isP=x.data==='2026-04-12';
+      return`<tr>
+        <td style="font-weight:500;color:var(--text)">${x.label}${isP?' <span style="font-size:9px;color:var(--yellow)">(parcial)</span>':''}</td>
+        <td class="${rC}">${x.r}</td>
+        <td class="${cC}">${x.r>0?x.cpr.toFixed(2):'—'}</td>
+        <td>${x.g.toFixed(2)}</td>
+        <td>${x.i.toLocaleString('pt-BR')}</td>
+        <td>${x.a.toLocaleString('pt-BR')}</td>
+        <td class="${ctrC}">${x.ctr.toFixed(2)}</td>
+        <td class="${cpmC}">${x.cpm.toFixed(2)}</td>
+        <td>${x.tp}</td>
+        <td>${x.ig_v}</td>
       </tr>`;
     }).join('')}
   </tbody></table>`;
 }
 
-// ══════════════════════════════════════════
-// INSIGHTS — ANÁLISE SÊNIOR
-// ══════════════════════════════════════════
+// ── INSIGHTS ──
 function renderInsights() {
-  const insights = [
-    { icon:'🏆', badge:'badge-ok', bt:'Ponto forte',
-      title:'CPR médio de R$ 4,41 — muito abaixo da média do setor',
-      text:'Para campanhas de mensagem WhatsApp no setor educacional/serviços locais, CPR abaixo de R$ 6 é considerado excelente. A campanha operou em R$ 4,41 com pico de eficiência no dia 20/mar (R$ 2,51). Estrutura de segmentação e criativo estavam bem alinhados.' },
-    { icon:'📉', badge:'badge-act', bt:'Alerta crítico',
-      title:'CTR médio de 0,76% — principal gargalo da campanha',
-      text:'CTR abaixo de 1% indica que o criativo não está gerando clique suficiente apesar de aparecer para o público certo. Com CPM baixo (R$ 9,96 média) o problema não é entrega — é conversão do clique. Melhorar CTA visual e copy da imagem pode dobrar os resultados sem aumentar budget.' },
-    { icon:'🗓️', badge:'badge-warn', bt:'Padrão temporal',
-      title:'Queda consistente após 21/mar — sinal de fadiga de criativo',
-      text:'Semana 1 (17–21/mar): média de 8,2 resultados/dia. Semana 2 (22–30/mar): média de 4,1 resultados/dia. Queda de 50% com mesmo budget. Sinal claro de fadiga: a audiência já viu o anúncio e parou de reagir. Rotação de criativo a cada 7–10 dias é mandatório nesse nicho.' },
-    { icon:'📅', badge:'badge-act', bt:'Outlier negativo',
-      title:'22/mar (domingo): 2 resultados, CPR R$ 8,25',
-      text:'Pior dia da campanha. Domingos historicamente têm menor intenção de compra em serviços B2C locais como autoescola. O público está em modo de descanso. Recomendação: reduzir budget em 50% aos domingos via regra de campanha e realocar para segunda e quinta.' },
-    { icon:'🚀', badge:'badge-scale', bt:'Potencial de escala',
-      title:'Campanha escalável — estrutura validada com CPR sólido',
-      text:'Com R$ 24,56/dia e CPR de R$ 4,41, a campanha gerou 78 conversas em 14 dias. Escalonando para R$ 50/dia (~R$ 1.500/mês), a projeção conservadora é 150–180 conversas/mês mantendo a estrutura. Lookalike da base atual pode reduzir o CPR ainda mais.' },
-    { icon:'👩‍🦱', badge:'badge-ok', bt:'Insight de público',
-      title:'Mulheres = 65% dos resultados com menor CPR estimado',
-      text:'51 resultados femininos (R$ 3,92/resultado) vs 27 masculinos (R$ 5,27/resultado). Diferença de 35% no custo. Criar versão de criativo especificamente para mulheres 25–44 anos pode ser a alavanca de maior retorno imediato.' },
-    { icon:'📊', badge:'badge-info', bt:'Insight de faixa etária',
-      title:'25–34 anos lidera — perfil de reinserção ou mudança de categoria',
-      text:'18–24 geraria mais leads para 1ª habilitação, mas tem o CPR mais alto (R$ 7,97). A faixa 25–34 (CPR R$ 3,93) e 45–54 (CPR R$ 3,64) sugerem público motivado por Nova Lei CNH ou adição de categoria. Criar mensagem específica para esse gatilho pode reduzir CPR médio.' },
-    { icon:'📸', badge:'badge-info', bt:'Instagram',
-      title:'64 visitas ao perfil — oportunidade não monetizada',
-      text:'Com objetivo de WhatsApp, o IG recebeu 64 visitas orgânicas dos anúncios. Taxa de conversão para seguidor foi de 14,1% (9 novos). Bio do perfil e destaques fortes podem aumentar essa taxa para 25–30%, transformando os anúncios em máquina de crescimento de seguidores também.' },
-    { icon:'⚙️', badge:'badge-act', bt:'Próximo passo',
-      title:'3 ações de otimização imediatas para a próxima campanha',
-      text:'1) Novo criativo com CTA mais direto para melhorar CTR acima de 1,2%. 2) Regra automática: −50% budget aos domingos, +30% às quintas e sextas. 3) Segmentação adicional com público feminino 25–44 anos com mensagem de Nova Lei CNH.' },
+  const ins=[
+    {i:'🏆',b:'bok',bt:'Criativo líder',
+      t:'Carrossel ANTIGO: 8 resultados, CPR R$ 4,58 — melhor da conta',
+      tx:'O Carrossel Antigo sozinho representa 47% de todos os resultados com o menor CPR. Evidência clara que o público reconhece e responde a criativos que já conhece. Aumentar budget nesse anúncio em 30–40% imediatamente e observar comportamento.'},
+    {i:'▶️',b:'bif',bt:'Vídeo forte',
+      t:'VÍDEO: 113 ThruPlays — audiência assistindo até o fim',
+      tx:'113 ThruPlays no vídeo indica alta retenção. Usuários que assistem um vídeo completo têm probabilidade 3× maior de converter. Criar uma campanha de remarketing específica para quem assistiu 75%+ do vídeo pode gerar CPR abaixo de R$ 3.'},
+    {i:'🗑️',b:'bad',bt:'Pausar já',
+      t:'"5 ERROS" e "MULHERES APRENDEM RÁPIDO" — zero resultados, budget perdido',
+      tx:'"5 ERROS" gastou R$ 1,21 sem gerar nada. "MULHERES APRENDEM RÁPIDO" com 0% de entrega. Pausar ambos imediatamente e realocar o budget para Carrossel Antigo e Vídeo que estão provando performance.'},
+    {i:'📈',b:'bok',bt:'CTR disparou',
+      t:'CTR médio de 1,38% — +82% vs campanha de março (0,76%)',
+      tx:'O mix de 6 criativos diferentes melhorou dramaticamente o CTR. Antes, 1 criativo entregava 0,76%. Agora, a combinação entrega 1,38%. Isso reduz o CPM efetivo e melhora a relevância no algoritmo — ciclo positivo para a campanha.'},
+    {i:'⏳',b:'bwn',bt:'Aprendizado',
+      t:'11/abr foi o pior dia — CPR R$ 10,08 com apenas 2 resultados',
+      tx:'Sábado historicamente tem performance mais fraca para serviços locais com decisão racional (auto escola). Recomendação: reduzir budget aos sábados em 40% e testar concentrar em terça-quinta onde o padrão de março mostrou melhor performance.'},
+    {i:'👩',b:'bok',bt:'Ponto forte',
+      t:'Mulheres = 70,6% dos resultados — padrão consistente com março',
+      tx:'Em março eram 65%, agora são 70,6%. O dado se consolida: criativos com linguagem voltada ao público feminino (como "Mulheres aprendem rápido") deveriam ter melhor performance teórica — vale revisar por que esse criativo não entregou antes de descartar.'},
+    {i:'📊',b:'bif',bt:'Comparativo',
+      t:'CPR subiu de R$ 4,41 para R$ 5,29 — mas é fase de aprendizado',
+      tx:'Não tomar decisão de otimização antes de 7–10 dias de campanha. O algoritmo do Meta precisa de pelo menos 50 eventos para otimizar. Com 17 resultados em 5 dias, ainda está aprendendo. Projeção: com 50+ resultados, o CPR deve cair para abaixo de R$ 5.'},
+    {i:'🚀',b:'bsc',bt:'Próximo passo',
+      t:'3 ações para a próxima semana — ordem de prioridade',
+      tx:'1) Pausar "5 ERROS" e "MULHERES APRENDEM RÁPIDO" — realocar budget. 2) Criar audiência de remarketing com quem assistiu 75%+ do vídeo. 3) Testar versão nova de "Mulheres" com criativo revisado — o segmento tem potencial confirmado pelos dados gerais de gênero.'},
   ];
-
-  document.getElementById('insightsGrid').innerHTML = insights.map(i=>`
-    <div class="insight-card fade-in">
-      <div class="insight-icon">${i.icon}</div>
+  document.getElementById('insightsGrid').innerHTML=ins.map(x=>`
+    <div class="ins fi2">
+      <div class="ins-ico">${x.i}</div>
       <div>
-        <div class="insight-badge ${i.badge}">${i.bt}</div>
-        <div class="insight-title">${i.title}</div>
-        <div class="insight-text">${i.text}</div>
+        <div class="ibadge ${x.b}">${x.bt}</div>
+        <div class="ins-title">${x.t}</div>
+        <div class="ins-text">${x.tx}</div>
       </div>
     </div>`).join('');
 }
 
-// ══════════════════════════════════════════
-// MAIN
-// ══════════════════════════════════════════
-function renderAll() {
-  renderKPIs();
-  renderCharts();
-  renderAgeBars();
-  renderTable();
-  renderInsights();
-}
+function renderAll(){renderKPIs();renderCharts();renderAgeBars();renderTable();renderInsights();}
 
-document.getElementById('footerDate').textContent =
+document.getElementById('fd').textContent=
   new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
 
-updateIgKpis();
+updateIG();
+renderCreatives();
 renderAll();
 </script>
 </body>
